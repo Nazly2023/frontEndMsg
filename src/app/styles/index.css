@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto:wght@300&display=swap");
+:root {
+  --font-Family-: Roboto;
+  --color-pinkWhite-: #f6d8f2;
+}
+* {
+  margin: 0;
+  padding: 0rem;
+  box-sizing: border-box;
+  justify-content: center;
+}
+body {
+  background-image: url(../images/fondoChat.png);
+  background-color: #cccccc;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.loginIn {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 0.0313rem solid black;
+  background-color: #fff;
+  max-width: 31.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  font-family: Roboto;
+  font-weight: bolder;
+  font-size: 0.875rem;
+}
+
+#numPhoneLabel {
+  background-color: #fff;
+  margin-top: 0.9375rem;
+  position: relative;
+  top: 0.1875rem;
+  left: 0.5rem;
+  width: 70%;
+  padding: 0.125rem;
+}
+.numberInput {
+  padding: 0.3125rem;
+  background-color: #fff;
+  margin-bottom: 0.9375rem;
+  height: 5vh;
+  width: 20vw;
+}
+#passwordLabel {
+  background-color: #fff;
+  margin-top: 0.9375rem;
+  position: relative;
+  top: 0.1875rem;
+  left: 0.5rem;
+  width: 45%;
+  padding: 0.125rem;
+}
+.passwordInput {
+  padding: 0.3125rem;
+  background-color: #fff;
+  height: 5vh;
+  width: 20vw;
+}
+.btnSignIn {
+  background-color: #f6d8f2;
+  border-radius: 0.3125rem;
+  border: 0.0313rem solid rgb(29, 28, 28);
+  padding: 0.3125rem;
+  margin-top: 0.9375rem;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.mensaje-bienvenida {
+  background-color: var(--color-pinkWhite-);
+  border: 0.125rem solid #f368e0;
+  padding: 0.625rem;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  font-family: var(--font-Family-);
+  width: 20vw;
+  height: 10vh;
+  margin: 0.3125rem auto;
+}

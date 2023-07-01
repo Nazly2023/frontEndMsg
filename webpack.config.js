@@ -54,7 +54,7 @@ module.exports = {
   resolve: {
     alias: {
       // Alias para acceder a las imágenes
-      "@images": path.resolve(__dirname, "src/app/images"),
+      "@images": path.resolve(__dirname, "./src/app/images"),
     },
   },
   plugins: [

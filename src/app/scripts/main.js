@@ -1,4 +1,4 @@
-import "../styles/index.css";
+import "../styles/index.scss";
 import showMsgWelcome from "./modules/showMsgWelcome";
 import Swal from "sweetalert2";
 import {

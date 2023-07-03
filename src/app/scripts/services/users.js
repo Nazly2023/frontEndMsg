@@ -32,6 +32,17 @@ const getUserByPhonePassword = async (number, password) => {
   }
 };
 
+const getUserById = async (id) => {
+  try {
+    const endpoint = `/users/${id}`;
+    const { data } = await axiosMessenger.get(endpoint);
+    return data;
+  } catch (error) {
+    alert(error);
+    return null;
+  }
+};
+
 const getUsers = async () => {
   try {
     const endpoint = "/users";
@@ -43,4 +54,20 @@ const getUsers = async () => {
   }
 };
 
-export { getUsers, getUserByPhone, getUserByPhonePassword };
+const createUser = async (user) => {
+  try {
+    const endpoint = "/users";
+    const response = await axiosMessenger.post(endpoint, user);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export {
+  getUsers,
+  getUserByPhone,
+  getUserByPhonePassword,
+  getUserById,
+  createUser,
+};

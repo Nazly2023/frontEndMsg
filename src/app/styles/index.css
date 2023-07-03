@@ -10,7 +10,7 @@
   justify-content: center;
 }
 body {
-  background-image: url(../images/fondoChat.png);
+  background-image: url(/frontEnd/src/images/fondoChat.png);
   background-color: #cccccc;
   height: 100vh;
   background-position: center;

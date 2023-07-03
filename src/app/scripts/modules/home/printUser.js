@@ -1,15 +1,15 @@
-const printUser = (user, container, photo) => {
-  container.innerHTML = `
+const printUser = (user, container) => {
+  const first_container = `
 
     <header class="header">
         <aside class="headerMobile">
             <figure class="photoProfile">
-                <img src="${photo.avatar}" alt="avatarPpal" class="avatarPpal">
+                <img src="../images/${user.id}/myAvatar${user.id}.svg" alt="avatarPpal" class="avatarPpal">
             </figure>
         </aside>
         <aside class="headerDesktop">
             <figure class="photoProfileHeader">
-                <img src=".${photo.photo}" alt="avatarContacto" class="avatarContacto">
+                <img src="../images/${user.id}/photoProfile${user.id}.png" alt="avatarContacto" class="avatarContacto">
             </figure>
             <div class="divContact">
                 <span class="nomContact">${user.name}</span>
@@ -19,6 +19,7 @@ const printUser = (user, container, photo) => {
         </aside>
     </header>
     `;
+  container.innerHTML = first_container + container.innerHTML;
 };
 
 export default printUser;

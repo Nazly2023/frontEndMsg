@@ -110,7 +110,7 @@
   visibility: visible;
 }
 .mainSection {
-  background-image: url(../images/fondoChat.png);
+  background-image: url(/frontEnd/src/images/fondoChat.png);
   background-color: #cccccc;
   height: 31.25rem;
   background-position: center;

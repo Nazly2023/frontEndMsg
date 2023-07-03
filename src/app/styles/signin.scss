@@ -1,0 +1,29 @@
+body {
+  background-image: url(../../images/fondoChat.png);
+  //   background-color: rgba(228, 240, 184, 0.9960784314);
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px #fb185a;
+}
+
+.form {
+  border: 2px solid #fb185a;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  border-radius: 10px;
+  gap: 7px;
+  padding: 7px;
+  transform: translate(184%, 10%);
+}
+
+#btnSubmit {
+  background-color: rgb(122, 42, 84);
+  color: #fff;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=signUp.css.map */

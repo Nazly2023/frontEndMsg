@@ -1,8 +1,8 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const glob = require("glob");
-// const sass = require("sass");
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   mode: "none",
   entry: {
@@ -12,6 +12,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "build"),
+    // publicPath: "build/", //This is where the issue was
     filename: "js/[name].bundle.js",
   },
   target: ["web", "es6"],
@@ -25,27 +26,39 @@ module.exports = {
         loader: "babel-loader",
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.s?css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(?:jpe?g|png|gif|svg)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "images",
-              publicPath: "images",
-            },
-          },
-        ],
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        type: "asset/resource",
+        // parser: {
+        //   dataUrlCondition: {
+        //     maxSize: 8192,
+        //   },
+        // },
+        // use: [
+        //   {
+        //     loader: "file-loader",
+        //     options: {
+        //       name: "[path][name].[ext]",
+        //       context: path.resolve(__dirname, "src/"),
+        //       outputPath: "build/",
+        //       publicPath: "../",
+        //       useRelativePaths: true,
+        //     },
+        //   },
+        // ],
       },
       {
         test: /\.html$/i,
         use: [
           {
             loader: "html-loader",
+            options: {
+              sources: false,
+              minimize: true,
+            },
           },
         ],
       },
@@ -54,29 +67,13 @@ module.exports = {
   resolve: {
     alias: {
       // Alias para acceder a las imágenes
-      "@images": path.resolve(__dirname, "./src/app/images"),
+      "@images": path.resolve(__dirname, "./src/images"),
     },
   },
   plugins: [
-    {
-      apply: (compiler) => {
-        compiler.hooks.emit.tap("GenerateImageListPlugin", (compilation) => {
-          const imageFiles = glob.sync(
-            "src/app/images/**/*.+(png|jpe?g|gif|svg)"
-          );
-          const imageList = imageFiles.map((filePath) => {
-            const relativePath = filePath.replace("src/", "");
-            return `import '${relativePath}';`;
-          });
-
-          const imageListContent = imageList.join("\n");
-          compilation.assets["imageList.js"] = {
-            source: () => imageListContent,
-            size: () => imageListContent.length,
-          };
-        });
-      },
-    },
+    new CopyPlugin({
+      patterns: [{ from: "./src/images", to: "images" }],
+    }),
     new HTMLWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
@@ -119,6 +116,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "css/[name].bundle.css",
       chunkFilename: "css/[name].bundle.css",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "scss/[name].bundle.scss",
+      chunkFilename: "scss/[name].bundle.scss",
     }),
   ],
 };

@@ -64,10 +64,21 @@ const createUser = async (user) => {
   }
 };
 
+const editUser = async (user, body) => {
+  try {
+    const endpoint = `/users/${user}`;
+    const response = await axiosMessenger.patch(endpoint, body);
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export {
   getUsers,
   getUserByPhone,
   getUserByPhonePassword,
   getUserById,
   createUser,
+  editUser,
 };

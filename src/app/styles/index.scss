@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto:wght@300&display=swap");
-:root {
-  --font-Family-: Roboto;
-  --color-pinkWhite-: #f6d8f2;
-}
+$font-Family: "Roboto", sans-serif;
+$color-pinkWhite: #f6d8f2;
+$color-pink_dark: #f368e0;
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +15,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
+  font-family: $font-Family;
 }
 
 .login-form {
@@ -26,26 +25,26 @@ body {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-.login-form__title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333333;
+  &__title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $color-pink_dark;
+  }
 }
 
 .form-group {
   margin-bottom: 20px;
-}
 
-.form-group label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333333;
+  &__label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
 }
 
 .form-group input {
@@ -54,27 +53,28 @@ body {
   font-size: 16px;
   border: 1px solid #dddddd;
   border-radius: 5px;
-  color: #555555;
+  color: #555;
 }
 
 .form-group input[type="submit"] {
-  background-color: #f6d8f2;
+  background-color: $color-pinkWhite;
   border: none;
-  color: #333333;
+  color: #333;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .form-group input[type="submit"]:hover {
-  background-color: #e1c5db;
+  background-color: $color-pinkWhite;
+  border: 0.0625rem solid $color-pink_dark;
 }
 
 .form-group .register-link {
   display: block;
   text-align: center;
   font-size: 14px;
-  color: #555555;
+  color: #555;
   text-decoration: none;
   margin-top: 10px;
 }
@@ -85,7 +85,7 @@ body {
   align-items: center;
   display: block;
   font-size: 14px;
-  color: #555555;
+  color: #555;
   text-decoration: none;
   margin-top: 10px;
   margin-left: auto;
@@ -128,7 +128,7 @@ body {
   width: 20vw;
 }
 .btnSignIn {
-  background-color: #f6d8f2;
+  background-color: $color-pinkWhite;
   border-radius: 0.3125rem;
   border: 0.0313rem solid rgb(29, 28, 28);
   padding: 0.3125rem;
@@ -138,13 +138,13 @@ body {
 }
 
 .mensaje-bienvenida {
-  background-color: var(--color-pinkWhite-);
-  border: 0.125rem solid #f368e0;
+  background-color: $color-pinkWhite;
+  border: 0.125rem solid $color-pink_dark;
   padding: 0.625rem;
   text-align: center;
   font-weight: bolder;
   font-size: 1.25rem;
-  font-family: var(--font-Family-);
+  font-family: $font-Family;
   width: 20vw;
   height: 10vh;
   margin: 0.3125rem auto;

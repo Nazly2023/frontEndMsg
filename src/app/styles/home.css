@@ -1,23 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto:wght@300&display=swap");
-:root {
-  --font-Family-: Roboto;
-  --color-pinkWhite-: #f6d8f2;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.header {
-  display: flex;
-}
-.headerMobile {
-  background-color: #f368e0;
-  height: 4.375rem;
-  width: 18.75rem;
-  border-right: 0.0313rem solid black;
-}
-.photoProfile {
+/* .photoProfile {
   border-radius: 2.8125rem;
   height: 3.125rem;
   width: 3.125rem;
@@ -29,9 +10,6 @@
   border-radius: 2.8125rem;
   height: 3.125rem;
   width: 3.125rem;
-}
-.sections {
-  display: flex;
 }
 .chatsDiv {
   background-color: var(--color-pinkWhite-);
@@ -119,15 +97,7 @@
   position: relative;
   overflow: hidden;
 }
-.headerDesktop {
-  background-color: #f368e0;
-  height: 4.375rem;
-  width: calc(100vw - 18.75rem);
-  display: flex;
-  padding: 0.625rem;
-  gap: 0.9375rem;
-  visibility: visible;
-}
+
 .photoProfileHeader {
   visibility: visible;
 }
@@ -195,4 +165,4 @@
   .messageSend {
     visibility: hidden;
   }
-}
+} */

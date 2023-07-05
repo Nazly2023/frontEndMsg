@@ -15,13 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (
       (name.value.trim() === "") |
       (number.value.trim() === "") |
-      (password.value.trim() === "") |
-      (image.value.trim() === "") |
-      (phrase.value.trim() === "")
+      (password.value.trim() === "")
     ) {
       Swal.fire({
         icon: "warning",
-        text: "Por favor, ingrese todos los campos",
+        text: "Por favor, ingrese los campos obligatorios",
       });
       return;
     }
@@ -35,7 +33,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const response = await createUser({
       name: name.value,
-      name: name.value,
+      number: number.value.trim(),
+      password: password.value,
+      flagConnection: "En línea",
+      infoStatus: phrase.value.trim() !== "" ? phrase.value : "",
+      lastConnection: new Date(),
+      urlProfileImage:
+        image.value.trim() !== ""
+          ? image.value
+          : "https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png",
     });
+
+    if (response.status < 400) {
+      Swal.fire({
+        // position: "top-end",
+        icon: "success",
+        title: "Usuario creado exitosamente",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    }
   });
 });
